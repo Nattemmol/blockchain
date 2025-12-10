@@ -1,0 +1,120 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.5.11;
+
+/*
+------------------------------------------------------------
+ GDG AASTU – Week 3 Solidity Practice Task
+------------------------------------------------------------
+TOPICS COVERED:
+    ✔ Arrays
+    ✔ Structs
+    ✔ Storage / Memory / Calldata
+    ✔ Mappings
+
+INSTRUCTIONS:
+Finish the functions marked with:
+    // TODO: finish this function so that it does...
+
+You are allowed to:
+✔ edit only the BODY of the functions  
+✔ add extra variables if needed  
+✘ do NOT change the function names  
+✘ do NOT remove existing comments  
+✘ do NOT rename the struct or variables  
+*/
+
+contract Week3Task {
+
+    // --------------------------------------------------------
+    // STRUCT
+    // --------------------------------------------------------
+
+    struct Person {
+        string name;
+        uint256 favoriteNumber;
+    }
+
+
+    // --------------------------------------------------------
+    // STATE VARIABLES
+    // --------------------------------------------------------
+
+    // Dynamic array of people
+    Person[] public people;
+
+    // Mapping from name → favorite number
+    mapping(string => uint256) public nameToFavoriteNumber;
+
+
+
+    // --------------------------------------------------------
+    // TASK FUNCTIONS
+    // --------------------------------------------------------
+
+    /*
+    TODO: finish this function so that it:
+    - creates a new Person using the given _name and _favoriteNumber
+    - stores it inside the "people" array
+    - IMPORTANT: _name must use MEMORY (because we modify/copy it)
+    */
+    function addPersonToArray(string memory _name, uint256 _favoriteNumber) public {
+        // ✏️ YOUR CODE HERE
+        people.push(Person(_name, _favoriteNumber));
+    }
+
+
+
+    /*
+    TODO: finish this function so that it:
+    - saves a favorite number using the mapping nameToFavoriteNumber
+    - uses string CALldata because we only read the input (not modify it)
+    Example: saveToMapping("John", 11) → mapping["John"] = 11
+    */
+    function saveToMapping(string calldata _name, uint256 _favoriteNumber) public {
+        // ✏️ YOUR CODE HERE
+        nameToFavoriteNumber[_name] = _favoriteNumber;
+    }
+
+
+
+    /*
+    TODO: finish this function so that it:
+    - updates ONLY the name of the Person at a given index
+    - MUST use STORAGE to modify the original struct inside the array
+    Example: updateName(0, "Alice")
+    */
+    function updateName(uint256 index, string memory newName) public {
+        // ✏️ YOUR CODE HERE
+        Person storage person = people[index];
+        person.name = newName;
+    }
+
+
+
+    /*
+    TODO: finish this function so that it:
+    - returns a Person struct from the array
+    - MUST use a VIEW function (reads blockchain state)
+    - returns the struct in MEMORY
+    Example: getPerson(0) → returns Person struct
+    */
+    function getPerson(uint256 index) public view returns (Person memory) {
+        // ✏️ YOUR CODE HERE
+        return people[index];
+    }
+
+
+
+    /*
+    TODO: finish this function so that it:
+    - checks if a name exists in the mapping
+    - returns TRUE if mapping[name] is NOT zero
+      (because default = 0 when key doesn’t exist)
+    - returns FALSE otherwise
+    */
+    function nameExists(string calldata _name) public view returns (bool) {
+        // ✏️ YOUR CODE HERE
+        return nameToFavoriteNumber[_name] != 0;
+    }
+
+}
