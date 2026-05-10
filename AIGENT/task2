@@ -1,0 +1,106 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.5.0;
+
+/*
+------------------------------------------------------------
+ GDG AASTU – Week 2 Solidity Practice Task
+------------------------------------------------------------
+INSTRUCTIONS:
+Finish the functions marked with:
+    // TODO: finish this function so that it does...
+
+You are allowed to:
+✔ edit the body of the function  
+✔ add extra variables if needed  
+✘ do NOT change function names  
+✘ do NOT remove existing comments  
+*/
+
+contract Task2 {
+
+    // --------------------------------------------------------
+    // VARIABLES
+    // --------------------------------------------------------
+
+    // Public number variable (default is 0)
+    uint public number;
+
+    // Private message variable
+    string private message = "Hello GDG AASTU!";
+
+    // Boolean showing if the contract is active
+    bool public isActive = true;
+
+
+
+    // --------------------------------------------------------
+    // FUNCTIONS
+    // --------------------------------------------------------
+
+    /*
+    TODO: finish this function so that it:
+    - updates the public variable "number"
+    - sets it equal to the value given as the input
+    Example: setNumber(10) → number becomes 10
+    */
+    function setNumber(uint newNumber) public {
+        // ✏️ YOUR CODE HERE
+        number = newNumber;
+    }
+
+
+
+    /*
+    TODO: finish this function so that it:
+    - returns the secret message stored in the private variable "message"
+    - this function should be a VIEW function
+    Hint: look at Week 2 notes → view functions read from blockchain
+    */
+    function getMessage() public view returns (string memory) {
+        // ✏️ YOUR CODE HERE
+        return message;
+    }
+
+
+
+    /*
+    TODO: finish this function so that it:
+    - takes two numbers
+    - returns their SUM
+    - must be a PURE function (does NOT read or write blockchain state)
+    Example: add(3,5) → 8
+    */
+    function add(uint a, uint b) public pure returns (uint) {
+        // ✏️ YOUR CODE HERE
+        return a + b;
+    }
+
+
+
+    /*
+    TODO: finish this function so that it:
+    - switches the value of "isActive"
+    - if isActive is true → make it false
+    - if isActive is false → make it true
+    This function CHANGES the state.
+    */
+    function toggleActive() public {
+        // ✏️ YOUR CODE HERE
+        isActive = !isActive;
+    }
+
+
+
+    /*
+    TODO: finish this function so that it:
+    - returns true ONLY if:
+          number is greater than 10
+    - returns false otherwise
+    - must be a VIEW function
+    */
+    function isNumberBig() public view returns (bool) {
+        // ✏️ YOUR CODE HERE
+        return number > 10;
+    }
+
+}
