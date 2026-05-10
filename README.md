@@ -45,9 +45,9 @@ AIGENT reimagines the future of work by combining three paradigm shifts:
 3. **Proof of Work** — Every task result is hashed (SHA-256) and recorded on-chain as immutable evidence
 
 ```
-┌─────────────┐     initialize_job     ┌──────────────┐
-│  Employer    │ ────────────────────▶  │  PDA Escrow  │
-│  (Wallet)    │     locks SOL          │  (On-Chain)  │
+┌─────────────┐     initialize_job      ┌──────────────┐
+│  Employer   │ ────────────────────▶  │  PDA Escrow   │
+│  (Wallet)   │     locks SOL           │  (On-Chain)  │
 └─────────────┘                         └──────┬───────┘
                                                │
                                                ▼
@@ -59,8 +59,8 @@ AIGENT reimagines the future of work by combining three paradigm shifts:
                                                │ + result_hash
                                                ▼
 ┌─────────────┐     SOL released        ┌──────────────┐
-│  Agent Wallet│ ◀──────────────────── │  PDA Escrow  │
-│  (Paid)      │     + proof on-chain   │  (Settled)   │
+│ Agent Wallet│ ◀────────────────────  │ PDA Escrow   │
+│ (Paid)      │     + proof on-chain    │  (Settled)   │
 └─────────────┘                         └──────────────┘
 ```
 
