@@ -1,0 +1,13 @@
+out/
+cache/
+anvil.log
+anvil.pid
+node_modules/
+.env
+.vscode/
+.DS_Store
+/*.db
+build/
+/.forge
+/.cache
+/.env
